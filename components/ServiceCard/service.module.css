@@ -1,0 +1,29 @@
+/* Card container styles */
+.service-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Card styles */
+  .card {
+    flex: 0 0 calc(50% - 10px); /* Adjust the width for 2 cards in a row */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image styles */
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Title styles */
+  .card h1 {
+    margin-top: 10px;
+    font-size: 18px;
+  }

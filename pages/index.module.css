@@ -1,0 +1,37 @@
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  font-weight: bold;
+  color: #fff; /* White text color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  cursor: pointer; /* Change cursor to pointer on hover for interactivity */
+  animation: gradientAnimation 5s infinite linear; /* Apply the animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(90deg, #9c27b0, #673ab7); /* Purple gradient */
+  }
+  50% {
+    background: linear-gradient(90deg, #673ab7, #9c27b0); /* Purple gradient */
+  }
+  100% {
+    background: linear-gradient(90deg, #9c27b0, #673ab7); /* Purple gradient */
+  }
+}
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

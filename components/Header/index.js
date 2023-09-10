@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button";
 // Local Data
 import data from "../../data/portfolio.json";
+import Image from "next/image";
+import polarbear from "../../public/polorbearlogo.png";
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
@@ -24,7 +26,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           <>
             <div className="flex items-center justify-between p-2 laptop:p-0">
               <h1
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/")} // Ensure that your router is correctly imported and configured.
                 className="font-medium p-2 laptop:p-0 link"
               >
                 {name}.
@@ -42,7 +44,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
-                    ></img>
+                      alt="Toggle Dark Mode"
+                    />
                   </Button>
                 )}
 
@@ -58,7 +61,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                         ? "cancel.svg"
                         : "cancel-white.svg"
                     }`}
-                  ></img>
+                    alt="Toggle Menu"
+                  />
                 </Popover.Button>
               </div>
             </div>
@@ -92,9 +96,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
-                  <Button onClick={() => router.push("/")} classes="first:ml-1">
-                    Home
-                  </Button>
+                  <Button onClick={() => router.push("/")}>Home</Button>
                   {showBlog && (
                     <Button onClick={() => router.push("/blog")}>Blog</Button>
                   )}
@@ -123,12 +125,27 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           theme === "light" && "bg-white"
         } dark:text-white top-0 z-10 tablet:flex`}
       >
-        <h1
-          onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
-        >
-          {name}.
-        </h1>
+        {/* <img
+      onClick={() => router.push("/")}
+      src="/public/images/polarbearlogo.png" // Check the path to the image (assuming it's in the "public" folder).
+      alt="Your Image Alt Text"
+      className="cursor-pointer mob:p-2 laptop:p-0"
+    /> */}
+
+        <Image
+          src={polarbear}
+          height="100%"
+          width="100%"
+          alt="article image"
+          style={{
+            objectFit: "cover", // This property controls how the image is scaled and cropped.
+            borderRadius: "50%", // Rounded corners for a circular shape (adjust as needed).
+            // boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)", // Add a shadow for a lifted effect.
+            // border: "2px solid #fff", // Add a border around the logo.
+            backgroundColor: "rgba(255, 255, 255, 0.7)", // Add a semi-transparent white background.
+            // You can add more CSS properties as needed to achieve your desired style.
+          }}
+        />
         {!isBlog ? (
           <div className="flex">
             <Button onClick={handleWorkScroll}>Work</Button>
@@ -155,7 +172,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 <img
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  alt="Toggle Dark Mode"
+                />
               </Button>
             )}
           </div>
@@ -185,7 +203,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 <img
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  alt="Toggle Dark Mode"
+                />
               </Button>
             )}
           </div>
